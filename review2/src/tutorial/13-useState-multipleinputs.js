@@ -15,10 +15,15 @@ const ControlledMultipleInputs = () => {
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setPerson({...person});
+    setPerson({...person, [name]: value});
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(person.firstName && person.email && person.age) {
+      const newPerson = {...person, id: new Date().getTime().toString()};
+      setPeople([...people, newPerson]);
+      setPerson({firstName: "", email: "", age: ""});
+    }
   };
   return (
     <>
@@ -39,10 +44,11 @@ const ControlledMultipleInputs = () => {
         <button type="submit" onClick={handleSubmit}>add person</button>
       </form>
       {people.map(person => {
-          const { id, firstName, email } = person;
+          const { id, firstName, email, age } = person;
         return <div key={id}>
           <h4>{firstName}</h4>
           <p>{email}</p>
+          <p>{age}</p>
         </div>
       })}
     </article>
