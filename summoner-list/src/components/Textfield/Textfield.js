@@ -1,3 +1,5 @@
+import Button from "../Button/Button";
+
 const Textfield = ({type, value, onChange}) => {
   return(
     <div className="form-group">
@@ -7,6 +9,7 @@ const Textfield = ({type, value, onChange}) => {
         value={value}
         onChange={onChange}
       />
+      <Button buttonText="submit"/>
       </label>
     </div>
   )
