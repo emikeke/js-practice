@@ -1,0 +1,42 @@
+.form-page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 5vh;
+  z-index: 0; /* navbar submit button dissapear fix */
+}
+
+.form-label {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 3rem;
+}
+
+.tier-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin: 0rem;
+}
+
+.form-wrapper {
+  margin-top: 5rem;
+}
+
+.league-rank {
+  display: flex;
+}
