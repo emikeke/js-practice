@@ -13,7 +13,7 @@ const Navbar = () => {
     <div className="nav-wrapper">
       <div className="logo-wrapper">
         <Link to="/" onClick={() => setActive(false)}>
-          <img src={logo} alt="logo"></img>
+          <img className="logo" src={logo} alt="logo"></img>
         </Link>
       </div>  
       <div className="menu-icon" onClick={handleIcon}>

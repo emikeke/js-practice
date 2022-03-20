@@ -6,12 +6,22 @@
   display: grid;
   grid-template-columns: repeat(4, auto);
   align-items: center;
-  width: 69vw;
-  height: 9vh;
+  width: 73vw;
+  height: 13vh;
 }
 
 .menu-icon {
   display: none;
+}
+
+.logo {
+  height: 75px;
+}
+
+.logo-wrapper {
+  display: grid;
+  align-items: center;
+  margin-bottom: 1.6rem;
 }
 
 a {
@@ -24,7 +34,7 @@ a {
 }
 
 a:hover {
-  color:rgb(41, 108, 233);
+  color:#4dcfff;
 }
 
 /* mobile */
@@ -70,6 +80,16 @@ a:hover {
   }  
 
   .nav-menu {
-    z-index: 0; /* navbar submit button dissapear fix */
+    z-index: -1; /* navbar submit button dissapear fix */
+  }
+
+  .logo-wrapper {
+    display: grid;
+    align-items: center;
+  }
+
+  .logo {
+    height: 85px;
+    margin-top: 0.9rem;
   }
 }

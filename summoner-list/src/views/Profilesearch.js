@@ -37,7 +37,7 @@ const ProfileSearch = () => {
     if (playerData.id) {
       requestSummonerLeague();
     }
-  }, [playerData]); 
+  }, [playerData]); // eslint-disable-next-line 
 
   async function requestSummonerLeague() {
     const res = await fetch(summonerLeagueURL);
