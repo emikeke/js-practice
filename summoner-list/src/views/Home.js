@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import pattern from "../../src/assets/bg-design.png";
 import Button from "../../src/components/Button/Button";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass, faUserGroup } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   return (
@@ -12,14 +13,16 @@ const Home = () => {
         <h1 className="h1-home">What are you looking for?</h1>
         <div className="buttons">
           <Link to="/profile/search">
-            <Button buttonText="Profile Search" style={{fontSize: "2.5rem", }}>
-              <i class="fa-solid fa-user-plus"></i>
-            </Button>
+            <div className="iconbutton-1">
+              <FontAwesomeIcon icon={faMagnifyingGlass} className="icon-1" />
+              <Button style={{fontSize: "2.5rem"}} buttonText="Profile Search" />
+            </div>
           </Link>
           <Link to="/duo/search">
-            <Button buttonText="Duo Search" style={{fontSize: "2.5rem"}}>
-              <i class="fa-solid fa-user-plus"></i>
-            </Button> 
+            <div className="iconbutton-2">
+              <FontAwesomeIcon icon={faUserGroup} className="icon-2" />
+              <Button buttonText="Duo Search" style={{fontSize: "2.5rem"}} />
+            </div>
           </Link>
         </div>
       </div>
