@@ -6,7 +6,8 @@
   display: grid;
   grid-template-columns: repeat(4, auto);
   align-items: center;
-  width: 73vw;
+  margin-left: 20rem;
+  width: 63vw;
   height: 13vh;
 }
 
