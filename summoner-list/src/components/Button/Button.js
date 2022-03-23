@@ -1,8 +1,8 @@
 import React from "react";
 
-const Button = ({buttonText, style}) => {
+const Button = ({variant, buttonText, style}) => {
   return (
-      <button className="btn btn-primary" type="submit" style={style}>
+      <button className={variant} type="submit" style={style}>
         <span className="span">
           {buttonText}
         </span>

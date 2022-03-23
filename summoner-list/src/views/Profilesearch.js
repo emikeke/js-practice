@@ -61,10 +61,11 @@ const ProfileSearch = () => {
   
   return (
     <div className="search-page">
+        <h1>Profile Search</h1>
       <div className="form-wrapper">
-        <h2>PROFILE SEARCH</h2>
         <form className="form-page" onSubmit={handleSubmit}>
           <Textfield 
+            className="form-control form-control-lg"
             type="text"
             value={search}
             onChange={(e) => {

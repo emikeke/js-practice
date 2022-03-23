@@ -15,13 +15,13 @@ const Home = () => {
           <Link to="/profile/search">
             <div className="iconbutton-1">
               <FontAwesomeIcon icon={faMagnifyingGlass} className="icon-1" />
-              <Button style={{fontSize: "2.5rem"}} buttonText="Profile Search" />
+              <Button variant="btn btn-primary" style={{fontSize: "2.5rem"}} buttonText="Profile Search" />
             </div>
           </Link>
           <Link to="/duo/search">
             <div className="iconbutton-2">
               <FontAwesomeIcon icon={faUserGroup} className="icon-2" />
-              <Button buttonText="Duo Search" style={{fontSize: "2.5rem"}} />
+              <Button variant="btn btn-primary" buttonText="Duo Search" style={{fontSize: "2.5rem"}} />
             </div>
           </Link>
         </div>

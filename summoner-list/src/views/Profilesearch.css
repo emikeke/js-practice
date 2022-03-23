@@ -40,3 +40,39 @@
 .league-rank {
   display: flex;
 }
+
+.button-spacing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.icon-1 {
+  margin-right: 8.25rem;
+  pointer-events: none;
+}
+
+.btn-secondary {
+  position: absolute;
+  margin-right: 4.7rem;
+  height: 2.88rem;
+  background-color: #4dcfff;
+  border-color: #4dcfff;
+  z-index: 0;
+  border-top-right-radius: 11px;
+  border-bottom-right-radius: 11px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.btn-secondary:hover {
+  background-color: #4dcfff;
+  border-color: #4dcfff; 
+}
+
+.form-control-lg {
+  border-width: 2px;
+  border-radius: 1rem;
+  border-color: #4dcfff;
+}
