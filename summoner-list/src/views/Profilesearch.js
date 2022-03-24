@@ -30,7 +30,7 @@ const ProfileSearch = () => {
       })
       .catch(err => {
         console.log(err)
-        setError("No summoner found");
+        setError("No summoner found, please try again with a different name.");
       })
   }
 
@@ -61,7 +61,7 @@ const ProfileSearch = () => {
   
   return (
     <div className="search-page">
-      <h1 className="h1-profile">Profile Search</h1>
+      <h1>Profile Search</h1>
       <div className="form-wrapper">
         <form className="form-page" onSubmit={handleSubmit}>
           <Textfield 
@@ -75,7 +75,7 @@ const ProfileSearch = () => {
           />
         </form>
       </div>
-      {error ? <>{Error && <div>{error}</div>}</>
+      {error ? <>{Error && <div className="error">{error}</div>}</>
       :
       <>
         {JSON.stringify(playerData) !== "{}" ? 
