@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"; 
 import Textfield from "../components/Textfield/Textfield";
 import "./Profilesearch.css";
+import "./Profilesearch-fail.css";
 
 const ProfileSearch = () => {
   const [search, setSearch] = useState(""); // user search
@@ -49,7 +50,6 @@ const ProfileSearch = () => {
     if (json.length === 0 ) {
       setPlayerLeague({tier: "UNRANKED"})
     }
-    //setPlayerLeague({tier: "UNRANKED", rank: " ", wins: " ", losses: " ", winrate: " "});
   }
 
   const handleSubmit = (e) => {
@@ -61,7 +61,7 @@ const ProfileSearch = () => {
   
   return (
     <div className="search-page">
-        <h1>Profile Search</h1>
+      <h1>Profile Search</h1>
       <div className="form-wrapper">
         <form className="form-page" onSubmit={handleSubmit}>
           <Textfield 

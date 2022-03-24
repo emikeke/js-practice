@@ -34,7 +34,7 @@
 }
 
 .form-wrapper {
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 .league-rank {
@@ -57,8 +57,8 @@
   position: absolute;
   margin-right: 4.7rem;
   height: 2.88rem;
-  background-color: #4dcfff;
-  border-color: #4dcfff;
+  background-color: #dedede;;
+  border-color: #dedede;;
   z-index: 0;
   border-top-right-radius: 11px;
   border-bottom-right-radius: 11px;
@@ -67,12 +67,21 @@
 }
 
 .btn-secondary:hover {
-  background-color: #4dcfff;
-  border-color: #4dcfff; 
+  background-color: #dedede;;
+  border-color: #dedede;; 
 }
 
 .form-control-lg {
   border-width: 2px;
   border-radius: 1rem;
-  border-color: #4dcfff;
+  border-color: #dedede;
+}
+
+/* mobile */
+@media screen and (max-width: 960px) {
+  .form-control-lg {
+    border-width: 2px;
+    border-radius: 1rem;
+    border-color: #dedede;
+  }
 }
