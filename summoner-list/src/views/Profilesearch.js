@@ -61,7 +61,7 @@ const ProfileSearch = () => {
   
   return (
     <div className="search-page">
-      <h1>Profile Search</h1>
+      <h1 className="h1-profile">Profile Search</h1>
       <div className="form-wrapper">
         <form className="form-page" onSubmit={handleSubmit}>
           <Textfield 
