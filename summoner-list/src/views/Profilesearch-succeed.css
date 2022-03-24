@@ -1,0 +1,79 @@
+.page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 28rem;
+  width: 28rem;
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  border-top-left-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+  background-image: linear-gradient(to bottom right, #4dcfff, #c0eeffb7);
+}
+
+.display-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 4rem;
+}
+
+.icon-profile {
+  display: flex;
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  border-top-left-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+}
+
+.circle {
+  height: 5rem;
+  width: 28rem;
+  background-color: #d4f4ff4d;
+  display: flex;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 99999;
+  overflow: hidden;
+  border-top-right-radius: 295rem;
+  border-bottom-right-radius: 0rem;
+  border-top-left-radius: 295rem;
+  border-bottom-left-radius: 0rem;
+}
+
+.name-info {
+  margin-top: 5.5rem;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+.tier-wrapper {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 1rem;
+}
+
+.winrate {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+.icon-4 {
+  font-size: 100px;
+  margin-left: 11rem;
+}

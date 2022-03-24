@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import Textfield from "../components/Textfield/Textfield";
 import "./Profilesearch.css";
 import "./Profilesearch-fail.css";
+import "./Profilesearch-succeed.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const ProfileSearch = () => {
   const [search, setSearch] = useState(""); // user search
@@ -79,26 +82,29 @@ const ProfileSearch = () => {
       :
       <>
         {JSON.stringify(playerData) !== "{}" ? 
-        <div className="page">
-            <div className="name-info">
-              {playerData.name ? playerData.name : ""}
-            </div>
-            <div>
-              {playerData.summonerLevel ? <div>level {playerData.summonerLevel}</div> : ""}
-              {playerData.profileIconId ? <div><img width="100" height="100" src={`http://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/${playerData.profileIconId}.png`} alt="summoner-icon" /></div> : "" }
-            </div>
-            <div className="tier-wrapper">
-              <div className="league-rank">
-                {playerLeague.tier ? <div className="tier">{playerLeague.tier}</div> : <div className>UNRANKED</div>} {playerLeague.rank ? <div className="rank">{playerLeague.rank} </div> : " "} {playerLeague.leaguePoints ? <div>{playerLeague.leaguePoints} LP</div> : " 0 LP"}
+        <div className="display-wrapper">
+          {playerData.profileIconId ? <div><img width="450" height="450" src={`http://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/${playerData.profileIconId}.png`} alt="summoner-icon" className="icon-profile" /></div> : "" }
+          <div className="page">
+              <div className="circle">
+                <FontAwesomeIcon icon={faUser} className="icon-4" />
               </div>
-              {playerLeague.wins ? <div className="wins">{playerLeague.wins} wins</div> : " "} {playerLeague.losses ? <div>{playerLeague.losses} losses</div> : " "}
-              {winrate ? <div className="winrate">{winrate} %</div> : ""}
+              <div className="text-container">
+                {playerData.name ? <div className="name-info">{playerData.name}</div> : ""}
+                <div className="tier-wrapper">
+                  {playerData.summonerLevel ? <div className="level-info">Level {playerData.summonerLevel}</div> : ""}
+                  <div className="league-rank">
+                    {playerLeague.tier ? <div className="tier">{playerLeague.tier}&nbsp;</div> : <div className>Unranked</div>} {playerLeague.rank ? <div className="rank">{playerLeague.rank}&nbsp;</div> : " "} {playerLeague.leaguePoints ? <div>{playerLeague.leaguePoints} LP</div> : "0 LP"}
+                  </div>
+                  {playerLeague.wins ? <div className="wins">{playerLeague.wins} Wins</div> : " "} {playerLeague.losses ? <div>{playerLeague.losses} Losses</div> : " "}
+                </div>
+                {winrate ? <div className="winrate">{winrate}% Winrate</div> : ""}
+              </div>
             </div>
         </div>
         : 
         <div className="search-text">
         </div>
-        } 
+      } 
       </>
       }
     </div>
