@@ -45,37 +45,42 @@
 .button-spacing {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   color: #ffffff;
 }
 
 .icon-1 {
-  margin-right: 8.25rem;
+  margin-right: 1.85rem;
   pointer-events: none;
 }
 
 .btn-secondary {
   position: absolute;
-  margin-right: 4.7rem;
-  height: 2.95rem;
-  background-color: #b2b2b2;;
-  border-color: #b2b2b2;;
+  margin-left: 4.6rem;
+  height: 3.14rem;
+  background-color: #ffe359;;
+  border-color: #64646f;
+  border-width: 2px;
   z-index: 0;
-  border-top-right-radius: 13px;
-  border-bottom-right-radius: 13px;
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 16px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
 
 .btn-secondary:hover {
-  background-color: #b2b2b2;;
-  border-color: #b2b2b2;; 
+  background-color: #4dcfff;;
+  border-color: #4dcfff;; 
+  border-color: #64646f;
+  border-width: 2px;
 }
 
 .form-control-lg {
-  border-width: 1px;
+  border-width: 2px;
   border-radius: 1rem;
-  border-color: #b2b2b2;
+  border-color: #64646f;
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 16px;
 }
 
 /* mobile */
@@ -83,6 +88,6 @@
   .form-control-lg {
     border-width: 1px;
     border-radius: 1rem;
-    border-color: #b2b2b2;
+    border-color: #64646f;
   }
 }

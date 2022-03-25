@@ -3,8 +3,6 @@ import Textfield from "../components/Textfield/Textfield";
 import "./Profilesearch.css";
 import "./Profilesearch-fail.css";
 import "./Profilesearch-succeed.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const ProfileSearch = () => {
   const [search, setSearch] = useState(""); // user search
@@ -83,11 +81,8 @@ const ProfileSearch = () => {
       <>
         {JSON.stringify(playerData) !== "{}" ? 
         <div className="display-wrapper">
-          {playerData.profileIconId ? <div><img width="450" height="450" src={`http://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/${playerData.profileIconId}.png`} alt="summoner-icon" className="icon-profile" /></div> : "" }
+          {playerData.profileIconId ? <div><img width="448" height="448" src={`http://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/${playerData.profileIconId}.png`} alt="summoner-icon" className="icon-profile" /></div> : "" }
           <div className="page">
-              <div className="circle">
-                <FontAwesomeIcon icon={faUser} className="icon-4" />
-              </div>
               <div className="text-container">
                 {playerData.name ? <div className="name-info">{playerData.name}</div> : ""}
                 <div className="tier-wrapper">

@@ -3,56 +3,37 @@
   flex-direction: row;
   justify-content: space-around;
   height: 28rem;
-  width: 28rem;
+  width: 34rem;
   border-top-right-radius: 5rem;
   border-bottom-right-radius: 5rem;
-  border-top-left-radius: 5rem;
-  border-bottom-left-radius: 5rem;
-  background-image: linear-gradient(to bottom right, #4dcfff, #c0eeffb7);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .display-wrapper {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: center;
-  gap: 4rem;
   margin-top: 4rem;
 }
 
 .icon-profile {
   display: flex;
-  border-top-right-radius: 5rem;
-  border-bottom-right-radius: 5rem;
   border-top-left-radius: 5rem;
   border-bottom-left-radius: 5rem;
-}
-
-.circle {
-  height: 5rem;
-  width: 28rem;
-  background-color: #d4f4ff4d;
-  display: flex;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 99999;
-  overflow: hidden;
-  border-top-right-radius: 295rem;
-  border-bottom-right-radius: 0rem;
-  border-top-left-radius: 295rem;
-  border-bottom-left-radius: 0rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .name-info {
-  margin-top: 5.5rem;
-  color: #ffffff;
-  font-weight: 600;
+  margin-top: 3.5rem;
+  color: #50505a;
+  font-weight: 700;
   font-size: 3rem;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .tier-wrapper {
-  color: #ffffff;
-  font-weight: 400;
+  color: #50505a;
+  font-weight: 500;
   font-size: 1.5rem;
   text-align: left;
   display: flex;
@@ -67,13 +48,8 @@
 }
 
 .winrate {
-  color: #ffffff;
-  font-weight: 600;
+  color: #50505a;
+  font-weight: 700;
   font-size: 3rem;
-  letter-spacing: 2px;
-}
-
-.icon-4 {
-  font-size: 100px;
-  margin-left: 11rem;
+  letter-spacing: 1px;
 }
