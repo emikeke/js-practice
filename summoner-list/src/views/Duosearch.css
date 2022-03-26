@@ -1,0 +1,13 @@
+.btn-danger {
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 16px;
+  border-top-left-radius: 17px;
+  border-bottom-left-radius: 17px;
+}
+
+.dropdown-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
