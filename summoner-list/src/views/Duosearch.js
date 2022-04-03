@@ -11,7 +11,7 @@ const DuoSearch = () => {
   const [ division, setDivision ] = useState(""); // summoner division
   const [ tier, setTier ] = useState(""); // summoner tier
   //const [ role, setRole ] = useState(""); // summoner tier
-  const [ search, setSearch ] = useState({}); // data for league v-4
+  const [ search, setSearch ] = useState(""); // data for league v-4
   const [ error, setError ] = useState(null); // error handling if no summoner search exists
 
   const API_KEY = "";
@@ -29,6 +29,8 @@ const DuoSearch = () => {
       })
       .then(data => {
         setSearch(data); // gets summonerName data from api
+        console.log(setSearch, "setSearch");
+        console.log(search, "search");
         results = findNameList(data); // sets summonerName to new obj
         console.log(findNameList(data), "findName");
         const summonerPuuidURL = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${results[0]["summonerName"]}?api_key=${API_KEY}`;
@@ -108,11 +110,11 @@ const DuoSearch = () => {
       <h1>Duo Search</h1>
       <form className="form-page-duo" onSubmit={handleSubmit}>
         <div className="dropdown-wrapper">
-          <DropdownTiers className="dropdown-tiers" onChange={(e) => {e.preventDefault(); setTier(e.target.value)}} value={tier}/>
-          <DropdownDivisions className="dropdown-divisions" onChange={(e) => setDivision(e.target.value)} value={division}/>
+          <DropdownTiers className="dropdown-tiers" onChange={(e) => {e.preventDefault(); setTier(e.target.value); setError(null)}} value={tier}/>
+          <DropdownDivisions className="dropdown-divisions" onChange={(e) => {setDivision(e.target.value); setError(null)}} value={division}/>
           {/* <DropdownRoles className="dropdown-role" onChange={(e) => setRole(e.target.value)} value={role}/> */}
         </div>
-        <Button variant="btn btn-danger" buttonText="Submit"/>
+        <Button variant="btn btn-danger" buttonText="Submit" />
       </form>
       {error ? <>{Error && <div className="error">{error}</div>}</>
     :
