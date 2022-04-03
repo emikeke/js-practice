@@ -88,17 +88,16 @@ const ProfileSearch = () => {
                 <div className="tier-wrapper">
                   {playerData.summonerLevel ? <div className="level-info">Level {playerData.summonerLevel}</div> : ""}
                   <div className="league-rank">
-                    {playerLeague.tier ? <div className="tier">{playerLeague.tier}&nbsp;</div> : <div className>Unranked</div>} {playerLeague.rank ? <div className="rank">{playerLeague.rank}&nbsp;</div> : " "} {playerLeague.leaguePoints ? <div>{playerLeague.leaguePoints} LP</div> : "0 LP"}
+                    {playerLeague.tier ? <div className="tier">{playerLeague.tier}&nbsp;</div> : <div className>Unranked</div>} {playerLeague.rank ? <div className="rank">{playerLeague.rank}&nbsp;</div> : ""} {playerLeague.leaguePoints ? <div>{playerLeague.leaguePoints} LP</div> : "0 LP"}
                   </div>
-                  {playerLeague.wins ? <div className="wins">{playerLeague.wins} Wins</div> : " "} {playerLeague.losses ? <div>{playerLeague.losses} Losses</div> : " "}
+                  {playerLeague.wins ? <div className="wins">{playerLeague.wins} Wins</div> : ""} {playerLeague.losses ? <div>{playerLeague.losses} Losses</div> : ""}
                 </div>
                 {winrate ? <div className="winrate">{winrate}% Winrate</div> : ""}
               </div>
             </div>
         </div>
         : 
-        <div className="search-text">
-        </div>
+        <div className="text-search"></div>
       } 
       </>
       }
