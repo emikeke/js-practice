@@ -2,6 +2,8 @@
 
 Hi there, thanks for visitng my project! This is Summoner Search, a search tool that uses the League of Legends Riot Games API. You are able to look up players by their in game name. This application currently only supports players in the NA region. 
 
+(https://github.com/emikeke/js-practice/blob/master/summoner-list/src/assets/demo1.gif?raw=true)
+
 You can install dependencies using the `npm install` command. 
 Start the web server using the `npm run local` command. 
 The app will be served at <http://localhost:3000/>. Visit <http://localhost:8080/> in your browser.
