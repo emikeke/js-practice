@@ -18,9 +18,8 @@ const ProfileSearch = () => {
   async function requestSummonerName() {
     fetch(summonerNameURL)
       .then(res => {
-        console.log(res);
         if(!res.ok) {
-          console.log(res);
+          //console.log(res);
           throw new Error("Page not found")
         }
         return res.json();

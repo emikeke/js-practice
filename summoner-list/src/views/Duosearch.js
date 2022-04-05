@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"; 
+import { useState } from "react"; 
 //import DropdownRoles from "../components/Dropdown/Dropdownroles";
 import DropdownTiers from "../components/Dropdown/Dropdowntiers"; 
 import DropdownDivisions from "../components/Dropdown/Dropdowndivisions";
@@ -17,6 +17,7 @@ const DuoSearch = () => {
   const API_KEY = "";
   const summonerAllTierURL = `https://na1.api.riotgames.com/lol/league/v4/entries/RANKED_SOLO_5x5/${tier}/${division}?&api_key=${API_KEY}`; // finds every player in this tier
   var results = [];
+  var summonerList = [];
 
   async function requestSearch() {
     fetch(summonerAllTierURL)
@@ -27,14 +28,16 @@ const DuoSearch = () => {
         }
         return res.json();
       })
-      .then(data => {
+      .then(data => { //data has all summoners in a certain rank
         setInput(data); // gets summonerName, data from api league-v4
         console.log(data, "data");
         results = findNameList(data); // sets summonerName to new obj
         console.log(findNameList(data), "findName");
-        const summonerPuuidURL = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${results[0]["summonerName"]}?api_key=${API_KEY}`;
-        setError(null);
-        fetch(summonerPuuidURL)
+        for(let i = 0; i < 10; i++) {
+          const element = data[i];
+          const eachSummonerName = element.summonerName;
+          const summonerPuuidURL = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${eachSummonerName}?api_key=${API_KEY}`;
+          fetch(summonerPuuidURL)
           .then(res => {
             if(!res.ok) {
               console.log(res);
@@ -42,23 +45,24 @@ const DuoSearch = () => {
             }
             return res.json();
           })
-          .then (data2 => {
-            console.log(data2, "PUUID"); // gets PUUID from api
-            const summonerMatchIDURL = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${data2.puuid}/ids?start=0&count=100&api_key=${API_KEY}`;
-            setError(null);
+          .then(dataPUUID => {
+            const resultInput = {summonerName: element.summonerName, wins: element.wins, losses: element.losses, role: dataPUUID.puuid};
+            summonerList.push(resultInput);
+            //put match logic here
+            const summonerMatchIDURL = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${dataPUUID.puuid}/ids?start=0&count=10&api_key=${API_KEY}`;
+
             fetch(summonerMatchIDURL)
-            .then(res => {
-              if(!res.ok) {
-                console.log(res);
-                throw new Error("Page not found")
-              }
-              return res.json();
-            })
-            .then (data3 => {
-              //console.log(data3, "match ID"); // gets match ID from api
-              const summonerMatchDetailsURL = `https://americas.api.riotgames.com/lol/match/v5/matches/${data3[0]}?api_key=${API_KEY}`;
-              setError(null);
-              fetch(summonerMatchDetailsURL)
+              .then(res => {
+                if(!res.ok) {
+                  console.log(res);
+                  throw new Error("Page not found")
+                }
+                return res.json();
+              })
+              .then (data2 => {
+                console.log(data2, "number of match id"); // gets PUUID from api
+                const summonerMatchDetailsURL = `https://americas.api.riotgames.com/lol/match/v5/matches/${data2[0]}?api_key=${API_KEY}`;
+                fetch(summonerMatchDetailsURL)
                 .then(res => {
                   if(!res.ok) {
                     console.log(res);
@@ -66,15 +70,78 @@ const DuoSearch = () => {
                   }
                   return res.json();
                 })
-                .then (data4 => {
-                  //console.log(data4, "match details -> role"); // gets match details from API 
-                  const participants = data4["info"]["participants"];
-                  findRole(participants, results[0]["summonerName"]);
-                  //console.log(findRole(participants, results[0]["summonerName"]), "findRole");
-                  setError(null);
+                .then(dataMatchDetal =>{
+                  //console.log(dataMatchDetal.metadata.participants, "match details");
+                  
+                  var roleSummonerName = findRole(dataMatchDetal, summonerList[0].summonerName);
+                  console.log(roleSummonerName, "position of SummonerName");
+                  //player.role = roleSummonerName;
                 })
-            })
+              })
           })
+        }
+
+        // data.forEach(element => {
+        //   var eachSummonerName = element.summonerName;
+        //   const summonerPuuidURL = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${eachSummonerName}?api_key=${API_KEY}`;
+        //   fetch(summonerPuuidURL)
+        //   .then(res => {
+        //     if(!res.ok) {
+        //       console.log(res);
+        //       throw new Error("Page not found")
+        //     }
+        //     return res.json();
+        //   })
+        //   .then(dataPUID => {
+        //     dataPUID.forEach(element => {
+        //       var summonerPUID = dataPUID.puuid
+        //       const summonerMatchIDURL = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${summonerPUID}/ids?start=0&count=100&api_key=${API_KEY}`;              
+        //       fetch(summonerMatchIDURL)
+        //       .then(res => {
+        //         if(!res.ok) {
+        //           console.log(res);
+        //           throw new Error("Page not found")
+        //         }
+        //         return res.json();
+        //       })
+        //       .then (data2 => {
+        //         //console.log(data2, "PUUID"); // gets PUUID from api
+        //         const summonerMatchDetailsURL = `https://americas.api.riotgames.com/lol/match/v5/matches/${data2[0]}?api_key=${API_KEY}`;
+        //         fetch(summonerMatchIDURL)
+        //         .then(res => {
+        //           if(!res.ok) {
+        //             console.log(res);
+        //             throw new Error("Page not found")
+        //           }
+        //           return res.json();
+        //         })
+        //         .then (data3 => {
+        //           //console.log(data3, "match ID"); // gets match ID from api
+        //           setError(null);
+        //           fetch(summonerMatchDetailsURL)
+        //             .then(res => {
+        //               if(!res.ok) {
+        //                 console.log(res);
+        //                 throw new Error("Page not found")
+        //               }
+        //               return res.json();
+        //             })
+        //             .then (data4 => {
+        //               //console.log(data4, "match details -> role"); // gets match details from API 
+        //               const participants = data4["info"]["participants"];
+        //               findRole(participants, results[0]["summonerName"]);
+        //               //console.log(findRole(participants, results[0]["summonerName"]), "findRole");
+        //               setError(null);
+        //             })
+        //         setError(null);
+        //     })
+        //     // console.log(dataPUID, "PUUID-Object"); // gets PUUID from api
+        //   })
+        // });
+
+        //     })
+        //   }) //<-
+
         })
       .catch(err => {
         console.log(err)
@@ -86,7 +153,6 @@ const DuoSearch = () => {
     let objData = Object.assign(data);
     var playerName = [];
     for (let element of objData) {
-
       playerName.push({"summonerName": element.summonerName})
     }
     return playerName;
@@ -94,7 +160,8 @@ const DuoSearch = () => {
 
   function findRole(data, summonerName) {
     let position = "";
-    for (let element of data) {
+    console.log(data);
+    for (let element of data.info.participants) {
       if (summonerName === element.summonerName) {
         position = element.teamPosition;
         return position;
@@ -127,6 +194,7 @@ const DuoSearch = () => {
             {player.summonerName} 
             {` winrate: ${Math.round((player.wins)/((player.wins + player.losses))*100)}%`} 
             {` total games played: ${player.wins + player.losses}`}
+            {` role: ${player.role}`}
           </li>
         ))}
       </div>
