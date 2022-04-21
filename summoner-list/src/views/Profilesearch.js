@@ -15,7 +15,7 @@ const ProfileSearch = () => {
   const summonerLeagueURL = `https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${playerData.id}?api_key=${API_KEY}`;
   const winrate = (Math.round(playerLeague.wins / (playerLeague.wins + playerLeague.losses) * 100));
 
-  async function requestSummonerName() {
+  function requestSummonerName() {
     fetch(summonerNameURL)
       .then(res => {
         if(!res.ok) {
@@ -81,7 +81,7 @@ const ProfileSearch = () => {
         {JSON.stringify(playerData) !== "{}" ? 
         <div className="display-wrapper">
           {playerData.profileIconId ? <div><img width="448" height="448" src={`http://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/${playerData.profileIconId}.png`} alt="summoner-icon" className="icon-profile" /></div> : "" }
-          <div className="page">
+            <div className="page">
               <div className="text-container">
                 {playerData.name ? <div className="name-info">{playerData.name}</div> : ""}
                 <div className="tier-wrapper">
@@ -89,17 +89,12 @@ const ProfileSearch = () => {
                   <div className="league-rank">
                     {playerLeague.tier ? <div className="tier">{playerLeague.tier}&nbsp;</div> : <div className>Unranked</div>} {playerLeague.rank ? <div className="rank">{playerLeague.rank}&nbsp;</div> : ""} {playerLeague.leaguePoints ? <div>{playerLeague.leaguePoints} LP</div> : "0 LP"}
                   </div>
-                  {playerLeague.wins ? <div className="wins">{playerLeague.wins} Wins</div> : ""} {playerLeague.losses ? <div>{playerLeague.losses} Losses</div> : ""}
+                  {playerLeague.wins ? <div className="wins">{playerLeague.wins} Wins {playerLeague.losses} Losses</div> : ""} {playerLeague.losses ? <div>{playerLeague.wins + playerLeague.losses} Total Games </div> : ""}
                 </div>
                 {winrate ? <div className="winrate">{winrate}% Winrate</div> : ""}
               </div>
             </div>
-        </div>
-        : 
-        <div className="text-search"></div>
-      } 
-      </>
-      }
+        </div> : <div className="text-search"></div>}</>}
     </div>
   )
 };

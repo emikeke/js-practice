@@ -1,7 +1,7 @@
 const DropdownTier = ({onChange, value}) => {
   return (
     <div className="dropdown-menu1">
-      <select className="form-select" onChange={onChange} value={value} size="7" style={{width:"12rem"}} aria-label="Default select example">
+      <select className="form-select" onChange={onChange} value={value} size="6" style={{width:"12rem"}} aria-label="Default select example">
         <option value="IRON">Iron</option>
         <option value="BRONZE">Bronze</option>
         <option value="SILVER">Silver</option>
