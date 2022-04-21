@@ -6,7 +6,7 @@ Hi there, thanks for visitng my project! This is Summoner Search, a search tool 
 
 You can install dependencies using the `npm install` command. 
 Start the web server using the `npm run local` command. 
-The app will be served at <http://localhost:3000/>. Visit <http://localhost:8080/> in your browser.
+The app will be served at <http://localhost:3000/> in your browser.
 
 Note: to use locally, you must replace API_KEY in Profilesearch.js with your own API key. You can sign up for one [here](https://developer.riotgames.com). It is free and available for use once you sign up; however, the API key expires every 24 hours.
 
