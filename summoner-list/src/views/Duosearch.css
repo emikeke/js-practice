@@ -76,3 +76,12 @@
   border-top-left-radius: 5rem;
   border-bottom-left-radius: 5rem;
 }
+
+/* mobile */
+@media screen and (max-width: 960px) {
+  .form-control-lg {
+    border-width: 1px;
+    border-radius: 1rem;
+    border-color: #64646f;
+  }
+}
