@@ -117,8 +117,8 @@ const DuoSearch = () => {
           <DropdownRank className="dropdown-rank" onChange={(e) => {setRank(e.target.value); setError(null)}} value={rank}/>
         </div>
           <div className="iconbutton-4">
-            <FontAwesomeIcon icon={faMagnifyingGlass} className="icon-4" style={{fontSize: "1.65rem", marginTop: "0.85rem", marginLeft: "51.5rem"}}/> 
-            <Button variant="btn btn-warning" buttonText="Submit" style={{fontSize: "2rem", width: "14rem", marginTop: "1.5rem", marginLeft: "49rem"}}/>
+            <FontAwesomeIcon icon={faMagnifyingGlass} className="icon-4" style={{fontSize: "1.85rem", marginTop: "0.85rem"}}/> 
+            <Button variant="btn btn-warning" buttonText="Submit" style={{fontSize: "2rem", width: "14rem", marginTop: "1.5rem", marginLeft: "46rem"}}/>
           </div>  
       </form>
       {error ? <>{Error && <div className="error">{error}</div>}</> : <>{JSON.stringify(input) !== "[]" ? 
