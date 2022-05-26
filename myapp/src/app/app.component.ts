@@ -8,16 +8,18 @@ import { HttpService } from './http.service';
 })
 export class AppComponent {
   title = 'myapp 123'; // binds data thru html file
-  jsonValue = {
-    a: 'hello',
-    b: 'world',
+
+  userObject = {
+    name: 'john',
+    age: '21',
+    id: 0,
   };
 
   newDate = new Date();
 
   constructor(private httpService: HttpService) {}
 
-  handleEvent() {
-    this.httpService.getRequest('https://jsonplaceholder.typicode.com/todos/1');
+  handleEvent(event: any) {
+    console.log(event);
   }
 }

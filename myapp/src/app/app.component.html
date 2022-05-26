@@ -5,9 +5,10 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<h1>{{ title | uppercase }}</h1>
-<h1>{{ jsonValue | json }}</h1>
-<h1>{{ newDate | date: "M:D:H" }}</h1>
-<button (click)="handleEvent()">Click Me</button>
-<input placeholder="hello" [ngModel]="title" />
+
+<input placeholder="user" [(ngModel)]="userObject.name" />
+<input placeholder="user" [(ngModel)]="userObject.age" />
+<input placeholder="user" [(ngModel)]="userObject.id" />
+
+<app-user [user]="userObject" (userEvent)="handleEvent($event)"></app-user>
 <router-outlet></router-outlet>
